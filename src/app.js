@@ -1,8 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
-//Agregue esto para que express pueda leer los datos que son enviados y procesarlos. 
-app.use(express.json());
+
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -12,6 +11,8 @@ const errorHandler = require("./middleware/errorHandler");
 const app = express();
 
 app.use(morgan("dev"));
+//Agregue esto para que express pueda leer los datos que son enviados y procesarlos. 
+app.use(express.json());
 
 //error en el login, tenia doble N 
 app.use("/api/login", authRoutes);
