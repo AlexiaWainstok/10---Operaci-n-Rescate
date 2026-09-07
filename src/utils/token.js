@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 function signToken(user) {
   return jwt.sign(
-   // Guardamos el id y el rol en el token para que los middlewares puedan identificarlos
+   // Guarde el id y el rol en el token para que los middlewares puedan identificarlos
     { id: user.id, role: user.role }, 
     process.env.JWT_SECRET || "super-secret", // Doble T en Secret 
     { expiresIn: "1h" } // Cambiado de 2 segundos a 1 hora

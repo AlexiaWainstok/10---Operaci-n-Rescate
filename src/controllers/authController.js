@@ -29,7 +29,7 @@ async function register(req, res, next) {
     users.push(newUser);
 
     const token = signToken(newUser);
-    // 3. CORREGIDO: Extraemos la contraseña por seguridad en el login también
+    // Extrae la contraseña por seguridad en el login también
     const { password: _, ...userWithoutPassword } = newUser;
 
     return res.status(201).json({
